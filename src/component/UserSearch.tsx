@@ -3,10 +3,12 @@ import { useState } from "react";
 
 import { fecthGitHubUser } from "../api/github";
 import UserCard from "./UserCard";
+import RecentSearches from "./RecentSearchers";
 
 const UserSearch = () => {
   const [userName, setUsername] = useState("");
   const [submittedUserName, setSubmittedUsername] = useState("");
+  const [recentUsers, setRecentUsers] = useState<string[]>([]);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["user", submittedUserName],
@@ -16,7 +18,14 @@ const UserSearch = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmittedUsername(userName.trim());
+    const trimmed = userName.trim();
+    if (!trimmed) return;
+    setSubmittedUsername(trimmed);
+
+    setRecentUsers((prev) => {
+      const updated = [trimmed, ...prev.filter((u) => u !== trimmed)];
+      return updated.slice(0, 5);
+    });
   };
 
   return (
@@ -33,6 +42,16 @@ const UserSearch = () => {
       {isLoading && <p className="status">Loading...</p>}
       {error && <p className="status error">{error.message}</p>}
       {data && <UserCard user={data} />}
+
+      {recentUsers.length > 0 && (
+        <RecentSearches
+          users={recentUsers}
+          onSelect={(userName) => {
+            setUsername(userName);
+            setSubmittedUsername(userName);
+          }}
+        />
+      )}
     </>
   );
 };
