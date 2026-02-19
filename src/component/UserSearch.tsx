@@ -4,7 +4,7 @@ import { fecthGitHubUser, searchGitHubUser } from "../api/github";
 import UserCard from "./UserCard";
 import RecentSearches from "./RecentSearchers";
 import { useDebounce } from "use-debounce";
-import type { GitHubUser } from "../type";
+import SuggestionsDropdown from "./SuggestionsDropDown";
 
 const UserSearch = () => {
   const [userName, setUsername] = useState("");
@@ -63,29 +63,27 @@ const UserSearch = () => {
             }}
           />
           {showSuggestions && suggestions?.length > 0 && (
-            <ul className="suggestions">
-              {suggestions.slice(0, 5).map((user: GitHubUser) => (
-                <li
-                  key={user.login}
-                  onClick={() => {
-                    setUsername(user.login);
-                    setShowSuggestion(false);
-                    if (submittedUserName !== user.login) {
-                      setSubmittedUsername(user.login);
-                    } else {
-                      refetch();
-                    }
-                  }}
-                >
-                  <img
-                    src={user.avatar_url}
-                    alt={user.login}
-                    className="avatar-xs"
-                  />
-                  {user.login}
-                </li>
-              ))}
-            </ul>
+            <SuggestionsDropdown
+              suggestions={suggestions}
+              show={showSuggestions}
+              onSelect={(selected) => {
+                setUsername(selected);
+                setShowSuggestion(false);
+                if (submittedUserName !== selected) {
+                  setSubmittedUsername(selected);
+                } else {
+                  refetch();
+                }
+
+                setRecentUsers((prev) => {
+                  const updated = [
+                    selected,
+                    ...prev.filter((u) => u !== selected),
+                  ];
+                  return updated.slice(0, 5);
+                });
+              }}
+            />
           )}
         </div>
 
