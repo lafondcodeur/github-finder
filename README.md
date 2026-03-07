@@ -8,7 +8,7 @@ L'objectif de ce projet est de pratiquer l'intégration d'API et d'explorer **Ta
 
 ## 🚀 Démo
 
-🌐 Live Demo : https://ton-lien-vercel.com  
+🌐 Live Demo : https://github-finder-sandy-two.vercel.app/ 
 
 ---
 
