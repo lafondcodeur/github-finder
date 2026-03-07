@@ -84,3 +84,19 @@ git clone https://github.com/ton-username/github-finder.git
 ```bash
   cd github-finder
 
+```
+
+## Installe les dépendances :
+
+```bash
+  npm install
+
+```
+
+## Lance le serveur de développement :
+
+```bash
+  npm run dev
+
+```
+
