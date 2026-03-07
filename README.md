@@ -14,7 +14,7 @@ L'objectif de ce projet est de pratiquer l'intégration d'API et d'explorer **Ta
 
 ## 📸 Aperçu
 
-![GitHub Finder Screenshot](./screenshot.png)
+![GitHub Finder Screenshot](image.jpeg)
 
 ---
 
