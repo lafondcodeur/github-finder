@@ -76,3 +76,11 @@ Clone le projet :
 
 ```bash
 git clone https://github.com/ton-username/github-finder.git
+
+```
+
+## Accède au dossier :
+
+```bash
+  cd github-finder
+
