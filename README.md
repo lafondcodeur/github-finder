@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# GitHub Finder 🔎
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GitHub Finder est une application web développée avec **React** qui permet de rechercher des utilisateurs GitHub et d'afficher leurs informations principales en utilisant l’API officielle de GitHub.
 
-Currently, two official plugins are available:
+L'objectif de ce projet est de pratiquer l'intégration d'API et d'explorer **TanStack Query** pour la gestion des données et des états asynchrones dans une application React moderne.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Démo
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🌐 Live Demo : https://ton-lien-vercel.com  
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📸 Aperçu
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![GitHub Finder Screenshot](./screenshot.png)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## ✨ Fonctionnalités
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- 🔍 Recherche d'utilisateurs GitHub
+- 💡 Suggestions d'utilisateurs pendant la saisie
+- 👤 Affichage des informations du profil
+  - Avatar
+  - Nom d'utilisateur
+  - Bio
+  - Lien vers le profil GitHub
+- ⭐ Vérification du statut **Follow / Following**
+- 🕒 Historique des recherches récentes
+- ⚡ Gestion optimisée des requêtes API avec **TanStack Query**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧠 Ce que j'ai appris
+
+Ce projet m'a permis de mieux comprendre :
+
+### TanStack Query
+
+- Gestion des requêtes API avec `useQuery`
+- Gestion automatique des états :
+  - `loading`
+  - `error`
+  - `success`
+- Mise en cache automatique des données
+- Refetch intelligent des données
+- Retry automatique en cas d'erreur
+- Contrôle de l'exécution des requêtes avec `enabled`
+
+### Développement Frontend
+
+- Architecture de composants React
+- Utilisation de **TypeScript avec React**
+- Gestion des variables d’environnement
+- Consommation d’API REST
+- Bonnes pratiques Git et GitHub
+
+---
+
+## 🛠️ Technologies utilisées
+
+- **React**
+- **TypeScript**
+- **TanStack Query**
+- **GitHub REST API**
+- **React Icons**
+- **Vite**
+
+---
+
+## 📦 Installation
+
+Clone le projet :
+
+```bash
+git clone https://github.com/ton-username/github-finder.git
